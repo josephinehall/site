@@ -2,6 +2,8 @@
 
 module Site
   class Routes < Hanami::Routes
-    # Add your routes here. See https://guides.hanamirb.org/routing/overview/ for details.
+    root to: "pages.home"
+
+    get "/community", to: "pages.community"
   end
 end
