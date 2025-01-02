@@ -22,8 +22,17 @@ jobs:
           ruby-version: "3.4"
           bundler-cache: true
 
+      - uses: actions/setup-node@v4
+        name: Setup Node
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+
       - name: Rake
-        run: bundle exec rake
+        run: |-
+          bundle exec hanami assets compile
+          bundle exec rake
 
   workflow-keepalive:
     if: github.event_name == 'schedule'
