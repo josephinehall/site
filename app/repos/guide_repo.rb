@@ -7,17 +7,27 @@ module Site
         guides.where(org:, version:, slug:).one!
       end
 
-      def all_with(org:, version:)
+      def all_for(org:, version:)
         guides.where(org:, version:).to_a
+      end
+
+      def versions_for(org:)
+        guides.where(org:).group(:version).order(guides[:version].desc).pluck(:version)
       end
 
       def latest_by_org
         Content::DEFAULT_GUIDE_VERSIONS.to_h { |org, version|
           [
             org,
-            guides.where(org:, version:).order(guides[:position].asc)
+            guides.where(org:, version:).order(guides[:position].asc).to_a
           ]
         }
+      end
+
+      def versions_by_org
+        guides
+          .group(:org, :version).order(guides[:version].desc).pluck(:org, :version)
+          .each_with_object({}) { |row, hsh| (hsh[row[0]] ||= []) << row[1] }
       end
     end
   end
