@@ -5,8 +5,6 @@ require "front_matter_parser"
 module Site
   module Content
     class MultiPageCollection
-      INDEX_PAGE_PATH = "index"
-
       attr_reader :root
 
       attr_reader :url_path
@@ -36,7 +34,7 @@ module Site
         # TODO: figure out if there's value in passing `self` to the page, to
         # allow the page to expose its siblings, etc.
         Content::Page.new(
-          url_path: (path == INDEX_NAME) ? url_path : File.join(url_path, path),
+          url_path: (path == INDEX_PAGE_PATH) ? url_path : File.join(url_path, path),
           front_matter: parsed_file.front_matter,
           content: parsed_file.content
         )
