@@ -1,15 +1,6 @@
 <h1>Doc: <%= doc.title %></h1>
 
-<ol data-testid="pages">
-  <% doc.pages.all.each do |page| %>
-    <li>
-      <a href="<%= page.url_path %>">
-        <%= page.title %>
-      </a>
-    </li>
-  <% end %>
-</ol>
-
+<%= render "doc_pages/pages_nav", pages: doc.pages.nested %>
 
 <h1>Page: <%= page.title %></h1>
 
