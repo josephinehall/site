@@ -13,6 +13,10 @@ module Site
         expose :page do |doc, path:|
           doc.pages[path]
         end
+
+        expose :other_versions do |slug:|
+          doc_repo.versions_for(slug:)
+        end
       end
     end
   end

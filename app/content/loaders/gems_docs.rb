@@ -7,7 +7,7 @@ module Site
     module Loaders
       # Loads gems and docs from content/docs/ into the database.
       class GemsDocs
-        GemData = Data.define(:org, :slug, :hidden)
+        GemData = Data.define(:org, :slug, :latest_version, :hidden)
         DocData = Data.define(:org, :slug, :version, :hidden)
 
         YAML_PATH = "docs.yml"
@@ -39,28 +39,30 @@ module Site
             .then { YAML.load(it, symbolize_names: true) }
             .fetch(DOCS_KEY)
 
-          gems = yaml_docs.map { |yaml_gem|
-            GemData.new(
-              org:,
-              slug: yaml_gem.fetch(SLUG_KEY),
-              hidden: gem_hidden?(yaml_gem[HIDDEN_KEY])
-            )
-          }
-          gems_relation.multi_insert(gems.map(&:to_h))
-
-          docs = yaml_docs.each_with_object([]) { |yaml_doc, memo_arr|
+          docs = []
+          yaml_docs.each do |yaml_doc|
             slug = yaml_doc.fetch(SLUG_KEY)
+
             hidden_versions = hidden_versions(yaml_doc[HIDDEN_KEY])
             versions_path = org_path.join(slug)
             versions = versions_path.glob("*").map { it.relative_path_from(versions_path).to_s }
 
+            latest_version = (versions - hidden_versions).max
+            gem = GemData.new(
+              org:,
+              slug:,
+              latest_version:,
+              hidden: gem_hidden?(yaml_doc[HIDDEN_KEY])
+            )
+            gems_relation.insert(gem.to_h)
+
             versions.each do |version|
-              memo_arr << DocData.new(
+              docs << DocData.new(
                 org:, slug:, version:,
                 hidden: hidden_versions.include?(version)
               )
             end
-          }
+          end
           docs_relation.multi_insert(docs.map(&:to_h))
         end
 

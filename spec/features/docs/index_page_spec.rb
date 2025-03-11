@@ -6,9 +6,9 @@ RSpec.feature "Docs / Index page" do
 
     within "[data-testid=dry-rb-docs]" do
       expect(page.find_all("li a").map(&:text)[0..2]).to eq [
-        "dry-types",
         "dry-cli",
-        "dry-operation"
+        "dry-operation",
+        "dry-types"
       ]
     end
   end
