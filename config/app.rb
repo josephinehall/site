@@ -4,6 +4,12 @@ require "hanami"
 
 module Site
   class App < Hanami::App
+    environment :production do
+      # We set HANAMI_ENV to production in bin/static-build, but we don't want the noisy default of
+      # logging to stdout.
+      config.logger.stream = File::NULL if ENV["SITE_STATIC_BUILD"]
+    end
+
     class << self
       def prepare
         super

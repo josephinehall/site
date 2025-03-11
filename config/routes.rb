@@ -2,16 +2,23 @@
 
 module Site
   class Routes < Hanami::Routes
+    # Only consider strings like "v1.0" as versions in paths
+    VERSION_OPTS = {version: /v\d+\.\d+/}.freeze
+
     root to: "pages.home"
 
     get "/guides", to: "guides.index"
-    get "/guides/:org/:version", to: "guides.org_index"
-    get "/guides/:org/:version/:slug", to: "guides.show"
-    get "/guides/:org/:version/:slug/*path", to: "guides.show"
+    get "/guides/:org/:version", to: "guides.org_index", **VERSION_OPTS
+    get "/guides/:org/:version/:slug", to: "guides.show", **VERSION_OPTS
+    get "/guides/:org/:version/:slug/*path", to: "guides.show", **VERSION_OPTS
+    get "/guides/:org/:slug", to: "guides.redirect"
+    get "/guides/:org/:slug/*path", to: "guides.redirect"
 
     get "/docs", to: "docs.index"
-    get "/docs/:slug/:version", to: "docs.show"
-    get "/docs/:slug/:version/*path", to: "docs.show"
+    get "/docs/:slug/:version", to: "docs.show", **VERSION_OPTS
+    get "/docs/:slug/:version/*path", to: "docs.show", **VERSION_OPTS
+    get "/docs/:slug", to: "docs.redirect"
+    get "/docs/:slug/*path", to: "docs.redirect"
 
     get "/community", to: "pages.community"
   end

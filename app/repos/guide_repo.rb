@@ -11,6 +11,10 @@ module Site
         guides.where(org:, version:).to_a
       end
 
+      def latest_version(org:)
+        Content::DEFAULT_GUIDE_VERSIONS.fetch(org)
+      end
+
       def versions_for(org:)
         guides.where(org:).group(:version).order(guides[:version].desc).pluck(:version)
       end

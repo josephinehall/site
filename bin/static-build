@@ -2,6 +2,9 @@
 
 set -eu
 
+export SITE_STATIC_BUILD=true
+export HANAMI_ENV=production
+
 # Compile frontend assets
 bundle exec hanami assets compile
 
