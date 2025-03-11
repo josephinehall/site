@@ -2,6 +2,9 @@
 
 set -eu
 
+export SITE_STATIC_BUILD=true
+export HANAMI_ENV=production
+
 # Compile frontend assets
 bundle exec hanami assets compile
 
@@ -15,3 +18,5 @@ fi
 
 # List all files in the build (useful for debugging).
 find build -type f | sort
+
+bin/generate-redirects
