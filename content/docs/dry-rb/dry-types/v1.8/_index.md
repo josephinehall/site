@@ -88,7 +88,7 @@ User.new(name: 'Bob')
 # => Dry::Struct::Error: [User.new] :age is missing in Hash input
 ```
 
-- Add custom constraints (see [Constraints](//page/constraints.html)):
+- Add custom constraints (see [Constraints](//page/constraints)):
 
 ```ruby
 class User < Dry::Struct

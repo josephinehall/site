@@ -7,7 +7,7 @@ pages:
 - design-pattern
 ---
 
-dry-operation provides an expressive and flexible way for you to model your app's business operations. It provides a lightweight DSL around [dry-monads](/gems/dry-monads/), which allows you to chain together steps and operations with a focus on the happy path, while elegantly handling failures.
+dry-operation provides an expressive and flexible way for you to model your app's business operations. It provides a lightweight DSL around [dry-monads](//doc/dry-monads), which allows you to chain together steps and operations with a focus on the happy path, while elegantly handling failures.
 
 ## Introduction
 
@@ -42,7 +42,7 @@ class CreateUser < Dry::Operation
 end
 ```
 
-Each step (`validate`, `persist`, `notify`) is expected to return either a `Success` or `Failure` from [dry-monads](/gems/dry-monads/).
+Each step (`validate`, `persist`, `notify`) is expected to return either a `Success` or `Failure` from [dry-monads](//doc/dry-monads).
 
 ## The step method
 
@@ -109,4 +109,4 @@ end
 
 This pattern matching allows you to handle different types of failures in a clear and explicit manner.
 
-You can read more about dry-monads' `Result` usage in the [dry-monads documentation](/gems/dry-monads/1.6/result/).
+You can read more about dry-monads' `Result` usage in the [dry-monads documentation](//doc/dry-monads/result/).

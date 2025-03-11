@@ -142,4 +142,4 @@ end
 
 This pattern matching allows you to handle different types of failures in a clear and explicit manner.
 
-Operations' `Success` and `Failure` results come from dry-monads. To learn more about working with results, see the [dry-monads result documentation](https://dry-rb.org/gems/dry-monads/1.6/result/).
+Operations' `Success` and `Failure` results come from dry-monads. To learn more about working with results, see the [dry-monads result documentation](//doc/dry-monads/result).
