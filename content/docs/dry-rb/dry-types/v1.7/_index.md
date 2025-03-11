@@ -37,7 +37,7 @@ User.new(name: 'Bob', age: 35)
 # => #<User name="Bob" age=35>
 ```
 
-See [Built-in Types](//doc/built-in-types) for a full list of available types.
+See [Built-in Types](//page/built-in-types) for a full list of available types.
 
 By themselves, the basic type definitions like `Types::String` and `Types::Integer` don't do anything except provide documentation about which type an attribute is expected to have. However, there are many more advanced possibilities:
 
@@ -68,7 +68,7 @@ User.new(name: 'Bob', age: 'not coercible')
 # => ArgumentError: invalid value for Integer(): "not coercible"
 ```
 
-- Use `.optional` to denote that an attribute can be `nil` (see [Optional Values](//doc/optional-values)):
+- Use `.optional` to denote that an attribute can be `nil` (see [Optional Values](//page/optional-values)):
 
 ```ruby
 class User < Dry::Struct
@@ -86,7 +86,7 @@ User.new(name: 'Bob')
 # => Dry::Struct::Error: [User.new] :age is missing in Hash input
 ```
 
-- Add custom constraints (see [Constraints](//doc/constraints)):
+- Add custom constraints (see [Constraints](//page/constraints)):
 
 ```ruby
 class User < Dry::Struct
@@ -125,16 +125,16 @@ Types::Strict::String[10000]
 
 ### Features
 
-* Support for [constrained types](//doc/constraints)
-* Support for [optional values](//doc/optional-values)
-* Support for [default values](//doc/default-values)
-* Support for [sum types](//doc/sum)
-* Support for [enums](//doc/enum)
-* Support for [hash type with type schemas](//doc/hash-schemas)
-* Support for [array type with members](//doc/array-with-member)
+* Support for [constrained types](//page/constraints)
+* Support for [optional values](//page/optional-values)
+* Support for [default values](//page/default-values)
+* Support for [sum types](//page/sum)
+* Support for [enums](//page/enum)
+* Support for [hash type with type schemas](//page/hash-schemas)
+* Support for [array type with members](//page/array-with-member)
 * Support for arbitrary meta information
 * Support for typed struct objects via [dry-struct](//doc/dry-struct)
-* Types are [categorized](//doc/built-in-types), which is especially important for optimized and dedicated coercion logic
+* Types are [categorized](//page/built-in-types), which is especially important for optimized and dedicated coercion logic
 * Types are composable and reusable objects
 * No const-missing magic and complicated const lookups
 * Roughly 6-10 x faster than Virtus

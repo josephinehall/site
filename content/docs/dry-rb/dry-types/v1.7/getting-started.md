@@ -31,7 +31,7 @@ name: dry-types
     end
     ```
 
-2. Define [Custom Types](//doc/custom-types) in the `Types` module, then pass the name & type to `attribute`:
+2. Define [Custom Types](//page/custom-types) in the `Types` module, then pass the name & type to `attribute`:
 
     ```ruby
     module Types
