@@ -61,7 +61,7 @@ RSpec.feature "Docs / Doc pages" do
   it "shows a table of contents for the current page" do
     visit "/docs/dry-operation/v1.0"
 
-    within "[data-testid=page-toc]" do
+    within "[data-testid=headings-toc]" do
       expect(page).to have_selector "li:nth-child(1)", text: "Introduction"
       expect(page).to have_selector "li:nth-child(2)", text: "Basic usage"
       expect(page).to have_selector "li:nth-child(3)", text: "The step method"
