@@ -3,18 +3,24 @@
 module Site
   module Content
     class GenerateRedirects
+      include Deps["repos.doc_repo"]
+
       def call
-        # Loop over the latest version of each guide and doc
+        redirects = []
 
-        # Generate lines like this for each:
-        #
-        # /docs/dry-types     /docs/dry-types/v1.8
-        # /docs/dry-types/*   /docs/dry-types/v1.8/:splat
+        Content::DEFAULT_GUIDE_VERSIONS.each do |org, version|
+          redirects
+            .push("/guides/#{org}    /guides/#{org}/#{version}")
+            .push("/guides/#{org}/*  /guides/#{org}/#{version}/:splat")
+        end
 
-        <<~STR
-          /docs/dry-types /docs/dry-types/v1.8
-          /docs/dry-types/* /docs/dry-types/v1.8/:splat
-        STR
+        doc_repo.latest_by_org.values.flatten.each do |doc|
+          redirects
+            .push("/docs/#{doc.slug}    /docs/#{doc.slug}/#{doc.version}")
+            .push("/docs/#{doc.slug}/*  /docs/#{doc.slug}/#{doc.version}/:splat")
+        end
+
+        redirects.join("\n")
       end
     end
   end
