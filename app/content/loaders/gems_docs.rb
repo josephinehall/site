@@ -47,7 +47,7 @@ module Site
             versions_path = org_path.join(slug)
             versions = versions_path.glob("*").map { it.relative_path_from(versions_path).to_s }
 
-            latest_version = (versions - hidden_versions).sort.last
+            latest_version = (versions - hidden_versions).max
             gem = GemData.new(
               org:,
               slug:,
