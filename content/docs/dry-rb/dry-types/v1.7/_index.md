@@ -37,7 +37,7 @@ User.new(name: 'Bob', age: 35)
 # => #<User name="Bob" age=35>
 ```
 
-See [Built-in Types](docs::built-in-types/) for a full list of available types.
+See [Built-in Types](//doc/built-in-types) for a full list of available types.
 
 By themselves, the basic type definitions like `Types::String` and `Types::Integer` don't do anything except provide documentation about which type an attribute is expected to have. However, there are many more advanced possibilities:
 
@@ -68,7 +68,7 @@ User.new(name: 'Bob', age: 'not coercible')
 # => ArgumentError: invalid value for Integer(): "not coercible"
 ```
 
-- Use `.optional` to denote that an attribute can be `nil` (see [Optional Values](docs::optional-values)):
+- Use `.optional` to denote that an attribute can be `nil` (see [Optional Values](//doc/optional-values)):
 
 ```ruby
 class User < Dry::Struct
@@ -86,7 +86,7 @@ User.new(name: 'Bob')
 # => Dry::Struct::Error: [User.new] :age is missing in Hash input
 ```
 
-- Add custom constraints (see [Constraints](docs::constraints.html)):
+- Add custom constraints (see [Constraints](//doc/constraints)):
 
 ```ruby
 class User < Dry::Struct
@@ -125,16 +125,16 @@ Types::Strict::String[10000]
 
 ### Features
 
-* Support for [constrained types](docs::constraints)
-* Support for [optional values](docs::optional-values)
-* Support for [default values](docs::default-values)
-* Support for [sum types](docs::sum)
-* Support for [enums](docs::enum)
-* Support for [hash type with type schemas](docs::hash-schemas)
-* Support for [array type with members](docs::array-with-member)
+* Support for [constrained types](//doc/constraints)
+* Support for [optional values](//doc/optional-values)
+* Support for [default values](//doc/default-values)
+* Support for [sum types](//doc/sum)
+* Support for [enums](//doc/enum)
+* Support for [hash type with type schemas](//doc/hash-schemas)
+* Support for [array type with members](//doc/array-with-member)
 * Support for arbitrary meta information
-* Support for typed struct objects via [dry-struct](/gems/dry-struct)
-* Types are [categorized](docs::built-in-types), which is especially important for optimized and dedicated coercion logic
+* Support for typed struct objects via [dry-struct](//doc/dry-struct)
+* Types are [categorized](//doc/built-in-types), which is especially important for optimized and dedicated coercion logic
 * Types are composable and reusable objects
 * No const-missing magic and complicated const lookups
 * Roughly 6-10 x faster than Virtus
@@ -153,8 +153,8 @@ Types::Strict::String[10000]
 
 `dry-types` is often used as a low-level abstraction. The following gems use it already:
 
-* [dry-struct](/gems/dry-struct)
-* [dry-initializer](/gems/dry-initializer)
+* [dry-struct](//doc/dry-struct)
+* [dry-initializer](//doc/dry-initializer)
 * [Hanami](http://hanamirb.org)
 * [rom-rb](http://rom-rb.org)
 * [Trailblazer](http://trailblazer.to)

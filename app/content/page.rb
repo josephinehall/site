@@ -95,7 +95,8 @@ module Site
               page: method(:page_path),
               file: method(:page_path),
               guide: method(:guide_path),
-              org_guide: method(:org_guide_path)
+              org_guide: method(:org_guide_path),
+              doc: method(:doc_path)
             }
           }
         )
@@ -121,7 +122,14 @@ module Site
       #
       # Visitors to that link will then be redirected to the latest version of the guide.
       def org_guide_path(path)
-        "/guides/#{path}"
+        "/guides" + path
+      end
+
+      # Transforms //doc/doc-slug/page-slug into a versionless path for the doc.
+      #
+      # Visitors to that link will then be redirected to the latest version of the doc.
+      def doc_path(path)
+        "/docs" + path
       end
     end
   end

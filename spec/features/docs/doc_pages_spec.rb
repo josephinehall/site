@@ -74,4 +74,22 @@ RSpec.feature "Docs / Doc pages" do
     heading_anchor = page.find("h2", exact_text: "Basic usage").find("a")
     expect(heading_anchor[:href]).to eq "#basic-usage"
   end
+
+  it "replaces //page URLs with URLs within the current doc and version" do
+    visit "/docs/dry-types/v1.8"
+
+    within ".content" do
+      # In the markdown, this is linked as "//page/constraints"
+      expect(page).to have_link "constrained types", href: "/docs/dry-types/v1.8/constraints"
+    end
+  end
+
+  it "transforms //doc links into versionless links to a different doc" do
+    visit "/docs/dry-types/v1.8/extensions/monads"
+
+    within ".content" do
+      # In the markdown, this is linked as "//doc/dry-monads"
+      expect(page).to have_link "dry-monads", href: "/docs/dry-monads"
+    end
+  end
 end

@@ -11,5 +11,5 @@ sections:
 
 Available extensions:
 
-- [Maybe](docs::extensions/maybe)
-- [Monads](docs::extensions/monads)
+- [Maybe](//doc/extensions/maybe)
+- [Monads](//doc/extensions/monads)

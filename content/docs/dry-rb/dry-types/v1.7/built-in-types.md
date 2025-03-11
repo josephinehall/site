@@ -15,7 +15,7 @@ Built-in types are grouped under 6 categories:
 
 ### Categories
 
-Assuming you included `Dry::Types` ([see instructions](docs::getting-started)) in a module called `Types`:
+Assuming you included `Dry::Types` ([see instructions](//doc/getting-started)) in a module called `Types`:
 
 * Nominal types:
   - `Types::Nominal::Any`
@@ -52,7 +52,7 @@ Assuming you included `Dry::Types` ([see instructions](docs::getting-started)) i
   - `Types::Strict::Array`
   - `Types::Strict::Hash`
 
-> All types in the `strict` category are [constrained](docs::constraints) by a type-check that is applied to make sure that the input is an instance of the primitive:
+> All types in the `strict` category are [constrained](//doc/constraints) by a type-check that is applied to make sure that the input is an instance of the primitive:
 
 ``` ruby
 Types::Strict::Integer[1] # => 1
@@ -115,4 +115,4 @@ Types::Strict::Integer['1'] # => raises Dry::Types::ConstraintError
   - `Types::Maybe::Coercible::Array`
   - `Types::Maybe::Coercible::Hash`
 
-> `Maybe` types are not available by default - they must be loaded using `Dry::Types.load_extensions(:maybe)`. See [Maybe extension](docs::extensions/maybe) for more information.
+> `Maybe` types are not available by default - they must be loaded using `Dry::Types.load_extensions(:maybe)`. See [Maybe extension](//doc/extensions/maybe) for more information.

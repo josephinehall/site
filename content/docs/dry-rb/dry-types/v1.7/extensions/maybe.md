@@ -4,7 +4,7 @@ layout: gem-single
 name: dry-types
 ---
 
-The [dry-monads gem](/gems/dry-monads/) provides an approach to handling optional values by returning a [`Maybe`](/gems/dry-monads/) object from operations that can return `nil`.
+The [dry-monads gem](//doc/dry-monads) provides an approach to handling optional values by returning a [`Maybe`](//doc/dry-monads) object from operations that can return `nil`.
 
 `dry-types` has an extension that can return `Maybe`s from calls to types. That is, it wraps the return result in either:
 - a `Some` object (with the resulting value)
@@ -41,7 +41,7 @@ Types::Strict::Integer.maybe["foo"]   # => raises Dry::Types::ConstraintError
 
 ```
 
-If you want to capture the errors (e.g. to return messages) instead of raising them, you may want to use the [`:monads` extension](docs::extensions/monads) instead, which returns a `Result`.
+If you want to capture the errors (e.g. to return messages) instead of raising them, you may want to use the [`:monads` extension](//doc/extensions/monads) instead, which returns a `Result`.
 
 Or, if you prefer, instead of calling `.maybe` you can use the `Maybe::` namespaced types instead.
 

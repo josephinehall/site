@@ -13,7 +13,7 @@ name: dry-types
      include Dry.Types()
     end
     ```
-   
+
 2. Reload the environment, & type `Types::Coercible::String` in the ruby console to confirm it worked:
 
     ``` ruby
@@ -31,12 +31,12 @@ name: dry-types
     end
     ```
 
-2. Define [Custom Types](docs::custom-types) in the `Types` module, then pass the name & type to `attribute`:
+2. Define [Custom Types](//page/custom-types) in the `Types` module, then pass the name & type to `attribute`:
 
     ```ruby
     module Types
       include Dry.Types()
-    
+
       Email = String.constrained(format: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i)
       Age = Integer.constrained(gt: 18)
     end

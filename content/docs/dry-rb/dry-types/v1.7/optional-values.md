@@ -6,7 +6,7 @@ name: dry-types
 
 Types themselves have optional attributes you can apply to get further functionality.
 
-### Append `.optional` to a _Type_ to allow `nil` 
+### Append `.optional` to a _Type_ to allow `nil`
 
 By default, nil values raise an error:
 
@@ -32,4 +32,4 @@ optional_string[123]
 
 ### Handle optional values using Monads
 
-See [Maybe](docs::extensions/maybe) extension for another approach to handling optional values by returning a [_Monad_](/gems/dry-monads/) object.
+See [Maybe](//doc/extensions/maybe) extension for another approach to handling optional values by returning a [_Monad_](//doc/dry-monads) object.

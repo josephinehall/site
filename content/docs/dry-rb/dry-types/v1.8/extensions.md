@@ -6,5 +6,5 @@ title: Extensions
 
 Available extensions:
 
-- [Maybe](docs::extensions/maybe)
-- [Monads](docs::extensions/monads)
+- [Maybe](//page/extensions/maybe)
+- [Monads](//page/extensions/monads)
