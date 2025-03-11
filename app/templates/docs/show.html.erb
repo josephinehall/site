@@ -11,16 +11,8 @@
 <h1>Page: <%= page.title %></h1>
 
 <h2>TOC</h2>
-<ol data-testid="page-toc">
-  <% page.headings.each do |heading| %>
-    <%# TODO: do something with heading.header_level %>
-    <li>
-      <a href="<%= heading.href %>">
-        <%= heading.text %>
-      </a>
-    </li>
-  <% end %>
-</ol>
+
+<%= render "doc_pages/headings_toc", headings: page.nested_headings %>
 
 <div class="content">
   <%= page.content_html %>

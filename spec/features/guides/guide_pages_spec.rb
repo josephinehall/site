@@ -35,18 +35,35 @@ RSpec.feature "Guides / Guide pages" do
   it "shows a table of contents for the current page" do
     visit "/guides/hanami/v2.2/views/context"
 
-    within "[data-testid=page-toc]" do
+    within "[data-testid=headings-toc]" do
       expect(page).to have_selector "li:nth-child(1)", text: "Standard context"
       expect(page).to have_selector "li:nth-child(2)", text: "Customizing the standard context"
       expect(page).to have_selector "li:nth-child(3)", text: "Decorating context attributes"
       expect(page).to have_selector "li:nth-child(4)", text: "Providing an alternative context object"
     end
 
-    within "[data-testid=page-toc]" do
+    within "[data-testid=headings-toc]" do
       expect(page).to have_link "Standard context", href: "#standard-context"
     end
     heading_anchor = page.find("h2", exact_text: "Standard context").find("a")
     expect(heading_anchor[:href]).to eq "#standard-context"
+  end
+
+  it "shows a nested table of contents when there are headings of varying levels" do
+    visit "/guides/hanami/v2.2/getting-started"
+
+    within "[data-testid=headings-toc]", match: :first do
+      parent_item = page.find("li", text: "Creating a Hanami app")
+      nested_nav = parent_item.find("ol")
+
+      within nested_nav do
+        nested_links = page.find_all("a")
+        expect(nested_links[0..1].map(&:text)).to eq [
+          "Prerequisites",
+          "Installing the gem"
+        ]
+      end
+    end
   end
 
   it "links to the other guides, in correct order" do

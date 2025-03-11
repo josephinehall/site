@@ -1,0 +1,12 @@
+<ol data-testid="headings-toc">
+  <% headings.each do |(heading, child_headings)| %>
+    <li>
+      <a href="<%= heading.href %>">
+        <%= heading.text %>
+      </a>
+      <% if child_headings.any? %>
+        <%= render "doc_pages/headings_toc", headings: child_headings %>
+      <% end %>
+    </li>
+  <% end %>
+</ol>
