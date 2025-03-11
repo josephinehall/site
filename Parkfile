@@ -27,6 +27,13 @@ end
 
 Parklife.application.configure do |config|
   config.app = Site::App
+
+  # Generate e.g. /nested/route.html instead of /nested/route/index.html. This will see Netlify
+  # ensure there are no trailing slashes on URLs, which is consistent with our routing when serving
+  # the live Hanami app.
+  config.nested_index = false
+
+  # Allow the build to proceed after encountering a 404
   config.on_404 = :warn
 end
 
