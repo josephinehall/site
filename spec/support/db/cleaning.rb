@@ -6,6 +6,7 @@ require "database_cleaner/sequel"
 RSpec.configure do |config|
   skip_cleaning = %w[
     docs
+    gems
     guides
     schema_migrations
   ]
