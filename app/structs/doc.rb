@@ -12,7 +12,7 @@ module Site
         )
       end
 
-      def url_path
+      def url_path(version = self.version)
         "/docs/#{slug}/#{version}"
       end
 

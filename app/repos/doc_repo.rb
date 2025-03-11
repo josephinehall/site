@@ -7,11 +7,15 @@ module Site
         docs.where(slug:, version:).one!
       end
 
+      def versions_for(slug:)
+        docs.where(slug:).group(:version).order(docs[:version].desc).pluck(:version).to_a
+      end
+
       def latest_by_org
-        docs
-          .visible
-          .order(docs[:version].desc)
-          .group(:slug)
+        gems
+          .select(:org, :slug)
+          .select_append { latest_version.as(:version) }
+          .as(:doc)
           .to_a
           .group_by(&:org)
       end

@@ -6,6 +6,7 @@ module Site
       schema :gems do
         attribute :org, Types::Nominal::String
         attribute :slug, Types::Nominal::String
+        attribute :latest_version, Types::Nominal::String
         attribute :hidden, Types::Nominal::Bool
       end
     end

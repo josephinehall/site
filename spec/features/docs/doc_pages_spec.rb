@@ -49,6 +49,15 @@ RSpec.feature "Docs / Doc pages" do
     end
   end
 
+  it "links to other versions of the doc" do
+    visit "/docs/dry-types/v1.8"
+
+    within "[data-testid=doc-versions]" do
+      expect(page).to have_link "v1.8", href: "/docs/dry-types/v1.8"
+      expect(page).to have_link "v1.7", href: "/docs/dry-types/v1.7"
+    end
+  end
+
   it "shows a table of contents for the current page" do
     visit "/docs/dry-operation/v1.0"
 

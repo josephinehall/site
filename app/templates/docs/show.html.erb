@@ -1,5 +1,11 @@
 <h1>Doc: <%= doc.title %></h1>
 
+<div data-testid="doc-versions">
+  <% other_versions.each do |version| %>
+    <a href="<%= doc.url_path(version) %>"><%= version %></a>
+  <% end %>
+</div>
+
 <%= render "doc_pages/pages_nav", pages: doc.pages.nested %>
 
 <h1>Page: <%= page.title %></h1>
