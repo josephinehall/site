@@ -9,4 +9,4 @@ require "hanami/prepare"
 
 redirects = Hanami.app["content.generate_redirects"].call
 
-File.write(Hanami.app.root.join("_redirects"), redirects)
+File.write(Hanami.app.root.join("build", "_redirects"), redirects)
