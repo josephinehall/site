@@ -19,4 +19,4 @@ fi
 # List all files in the build (useful for debugging).
 find build -type f | sort
 
-bin/configure-netlify
+bin/generate-redirects
