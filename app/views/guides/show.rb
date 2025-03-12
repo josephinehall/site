@@ -14,6 +14,10 @@ module Site
           guide.pages[path]
         end
 
+        expose :org, decorate: false
+
+        expose :version, decorate: false
+
         expose :other_guides do |org:, version:|
           guide_repo.all_for(org:, version:)
         end

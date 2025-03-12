@@ -1,3 +1,5 @@
+<% content_for :title, "#{guide.title} / #{page.title} &middot; #{org_name(org)} #{version} Guides" %>
+
 <h2>All guides</h1>
 <ol data-testid="guides-list">
   <% other_guides.each do |guide| %>

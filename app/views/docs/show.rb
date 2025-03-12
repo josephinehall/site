@@ -14,6 +14,8 @@ module Site
           doc.pages[path]
         end
 
+        expose :version, decorate: false
+
         expose :other_versions do |slug:|
           doc_repo.versions_for(slug:)
         end

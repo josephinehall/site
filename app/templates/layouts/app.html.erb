@@ -3,7 +3,13 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site</title>
+    <title>
+      <% if content_for(:title) %>
+        <%= raw(content_for(:title)) %> &middot; Hanami Collection
+      <% else %>
+        Hanami
+      <% end %>
+    </title>
     <%= favicon_tag %>
     <%= stylesheet_tag "app" %>
   </head>
