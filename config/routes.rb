@@ -27,5 +27,6 @@ module Site
 
     get "/community", to: "pages.community"
     get "/conduct", to: "pages.conduct"
+    get "/sponsor", to: "pages.sponsor"
   end
 end
