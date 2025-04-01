@@ -11,6 +11,8 @@ SitemapGenerator::Sitemap.default_host = app["settings"].site_url
 SitemapGenerator::Sitemap.create do
   # Pages
   add "/community"
+  add "/conduct"
+  add "/sponsor"
 
   # Guides
   add "/guides"
