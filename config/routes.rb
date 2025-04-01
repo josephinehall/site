@@ -26,5 +26,6 @@ module Site
     get "/feed.xml", to: "feed.index"
 
     get "/community", to: "pages.community"
+    get "/conduct", to: "pages.conduct"
   end
 end
