@@ -1,4 +1,5 @@
 docs:
+  - slug: dry-auto_inject
   - slug: dry-cli
   - slug: dry-operation
   - slug: dry-types
