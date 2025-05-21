@@ -2,9 +2,9 @@
 title: Injection strategies
 ---
 
-dry-auto*inject supports three \_injection strategies*, allowing you to design and integrate with different kinds of classes.
+dry-auto_inject supports three injection strategies, allowing you to design and integrate with different kinds of classes.
 
-These strategies all provide _constructor dependency injection_: dependencies are passed when creating your objects. The strategies differ in how they expect dependencies to be passed to the initializer.
+These strategies all provide constructor dependency injection: dependencies are passed when creating your objects. The strategies differ in how they expect dependencies to be passed to the initializer.
 
 ## Choosing a strategy
 
