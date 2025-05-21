@@ -2,19 +2,21 @@
 title: Introduction
 pages:
   - basic-usage
+  - how-does-it-work
+  - injection-strategies
 ---
 
-`dry-auto_inject` provides low-impact dependency injection and resolution support for your classes.
+dry-auto_inject provides low-impact dependency injection and resolution support for your classes.
 
-It’s designed to work with a container that holds your application’s dependencies. It works well with [dry-container](https://dry-rb.org/gems/dry-container), but supports any container that responds to the #[] interface.
+It’s designed to work with a container that holds your application’s dependencies. It works well with [dry-container](//doc/dry-container), but supports any container that responds to the `#[]` interface.
 
-### Why use dry-auto_inject
+### Why use dry-auto_inject?
 
 Splitting your application’s behavior into smaller, more focused units makes for logic that is easier to understand, test, and refactor. Dependency injection is what then allows you to combine these small units to create more sophisticated behavior.
 
 By using a container and dry-auto_inject, this process becomes easy. You don’t need to worry about building constructors or accessors, and adding extra dependencies is as easy as adding a string to a list.
 
-### Example usage
+### Usage example
 
 ```ruby
 # Set up a container (using dry-container here)
