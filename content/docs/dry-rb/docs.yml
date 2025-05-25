@@ -1,6 +1,7 @@
 docs:
   - slug: dry-auto_inject
   - slug: dry-cli
+  - slug: dry-configurable
   - slug: dry-operation
   - slug: dry-types
   - slug: dry-view
