@@ -1,6 +1,8 @@
 docs:
   - slug: dry-auto_inject
+  - slug: dry-equalizer
   - slug: dry-cli
+  - slug: dry-container
   - slug: dry-operation
   - slug: dry-types
   - slug: dry-view
