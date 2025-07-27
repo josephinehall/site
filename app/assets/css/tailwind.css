@@ -5,7 +5,8 @@
 @import "tailwindcss";
 @source "../../templates";
 
-a {
-  color: blue;
-  text-decoration: underline;
+@theme {
+  --font-sans:
+    "Faire Sprig Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
 }
