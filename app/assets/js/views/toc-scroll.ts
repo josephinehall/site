@@ -1,3 +1,5 @@
+import { debounce } from "lodash-es";
+
 export function tocScrollViewFn(
   linkContainerNode: HTMLElement,
   {
@@ -21,7 +23,9 @@ export function tocScrollViewFn(
 
   // Failed to find anything, bail out
   if (!indicator || !firstAnchor || links.length == 0) {
-    return;
+    return {
+      destroy: () => {},
+    };
   }
 
   // Determine the initial position of the indicator (based on the position of the first link
@@ -36,6 +40,7 @@ export function tocScrollViewFn(
   const activeClass = "text-rose-500";
   const xOffset = 12;
   const xOffsetDepth = 4;
+
   const onChangeAnchor = (activeAnchor: HTMLElement | undefined) => {
     requestAnimationFrame(() => {
       // Remove active class from all links
@@ -66,16 +71,21 @@ export function tocScrollViewFn(
     });
   };
 
-  const onScroll = createOnScrollFn({
-    anchors,
-    onChangeAnchor,
-  });
+  const onScroll = debounce(
+    createOnScrollFn({
+      anchors,
+      onChangeAnchor,
+    }),
+    20,
+    { maxWait: 40 },
+  );
 
   window.addEventListener("scroll", onScroll);
 
   return {
     destroy: () => {
       window.removeEventListener("scroll", onScroll);
+      links.forEach((node) => node.classList.remove(activeClass));
     },
   };
 }
