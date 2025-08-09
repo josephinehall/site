@@ -179,4 +179,4 @@ To rotate log files based on age, provide:
 logger = Dry.logger(:test, stream: "logs/test.log", shift_age: "daily")
 ```
 
-See the [Ruby Logger documentation]((https://rubyapi.org/o/logger#class-Logger-label-Log+File+Rotation)) for more detail on its log rotation support.
+See the [Ruby Logger documentation](https://rubyapi.org/o/logger#class-Logger-label-Log+File+Rotation) for more detail on its log rotation support.
